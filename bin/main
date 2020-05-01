@@ -1,2 +1,33 @@
 #!/usr/bin/env ruby
-puts 'Hello world!'
+puts 'Welcome to the Game!'
+
+# board_positions = ["", "", "", "", "", "", "", "", "",]
+
+board_display = []
+
+new_game = "-#{board_display[0]}-|-#{board_display[1]}-|-#{board_display[2]}-"
+
+puts new_game
+puts new_game
+puts new_game
+
+puts 'Your turn, player one'
+player_one_turn = gets.chomp.downcase
+
+if player_one_turn != 'x'
+  puts 'You did not enter X'
+else
+  board_display.push(player_one_turn)
+  # puts boardDisplay
+  puts new_game
+  puts 'Your turn, player two'
+  player_two_turn = gets.chomp.downcase
+  puts 'You did not enter O' if player_two_turn != 'o'
+end
+
+puts 'You win, player one'
+puts 'You win, player two'
+
+player_score = puts 'The score is:  '
+
+return player_score
