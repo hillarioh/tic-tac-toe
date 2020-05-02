@@ -1,29 +1,34 @@
 class Board
 
-    def initialize()
-        @my_board1 = ["1","2","1"]
-        @my_board2 = ["","1",""]
-        @my_board3 = ["1","","1"]
+    attr_reader :my_board, :results
 
+    def initialize()
+        @my_board={
+            1=>"X",
+            2=>"X",
+            3=>"X",
+            4=>"X",
+            5=>"X",
+            6=>"X",
+            7=>"X",
+            8=>"X",
+            9=>"X",
+        }
+        @results=0
     end
 
-    def input_position(value)
-       if position_check(@my_board[0][1]) ==""
-
-        @my_board[0][1]=value
+    def input_position(value,player_id)
+       if self.my_board[value] =="X"
+        self.my_board[value]=player_id
        else
         return "position filled, choose another"
        end
 
     end
 
-    def position_check(position)
 
-
-    end
-
-    def results
-
+    def results_check
+        
     end
 
 

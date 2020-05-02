@@ -1,7 +1,7 @@
 class Player
 
     @@user = 0
-    attr_reader :player_name
+    attr_reader :player_name,:player_id
 
     def initialize(name)
         @player_name = name
