@@ -3,26 +3,38 @@ class Main
 
      def self.welcome
         puts "Welcome to the game"
-        puts "Press 1 to begin"
+        puts "Press 1 to start"
         choice = gets.chomp
-        if choice !=1
-          return false
+
+        if choice.to_i ==1
+          return true
         else
-          return true          
+          return false         
         end
     end
 
-    def self.display_board
-        puts "This how the board looks like after entering position"
+    def self.display_board(stuff)
+        print "\t|\s#{stuff[1]}\s"
+        print "|\s#{stuff[2]}\s"
+        puts "|\s#{stuff[3]}\s|"
+        puts "\t-------------"
+        print "\t|\s#{stuff[4]}\s"
+        print "|\s#{stuff[5]}\s"
+        puts "|\s#{stuff[6]}\s|"
+        puts "\t-------------"
+        print "\t|\s#{stuff[7]}\s"
+        print "|\s#{stuff[8]}\s"
+        puts "|\s#{stuff[9]}\s|"
+        
     end
 
-    def self.enter_position
-      puts "Enter position that you would like to place"
+    def self.enter_position(name)
+      puts "[#{name}]-Enter position (1-9 ):"
       my_pos = gets.chomp
-      return my_pos
+      return my_pos.to_i
     end
 
-    def self.status_of_position(status)
+    def self.statuses(status)
       puts status
     end
 
