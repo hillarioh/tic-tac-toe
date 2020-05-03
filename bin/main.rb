@@ -1,12 +1,11 @@
-#! C:/Ruby26-x64/bin/ruby
-puts 'hello, '
+#!/usr/bin/env ruby
 # This is just a representation of how user interface will be, we have been able to capture everything
 # in the next milestone. Please bear with us
 
 class Main
   def self.welcome
     puts 'Welcome to the game'
-    puts 'Press 1 to  start'
+    puts 'Press 1 to start'
     choice = gets.chomp
 
     if choice.to_i == 1

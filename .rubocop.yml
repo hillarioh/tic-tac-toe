@@ -8,6 +8,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
+Lint/ScriptPermission:
+  Enabled: false
 Metrics/MethodLength:
   Max: 20
 Metrics/AbcSize:
@@ -15,9 +17,8 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ['describe']
+  ExcludedMethods: ["describe"]
   Max: 30
-
 
 Style/Documentation:
   Enabled: false
