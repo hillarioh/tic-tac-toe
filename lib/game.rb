@@ -22,22 +22,34 @@ new_game = Board.new()
 maximum_moves = 5
 
 loop do
-    
+    # displays current board state 
     Main.display_board(new_game.my_board)
 
     # Player One
     position = Main.enter_position(player1.player_name)
-    puts new_game.input_position(position,player1.player_id)
+    new_game.input_position(position,player1.player_id)
 
     # displays current board state after player one input
     Main.display_board(new_game.my_board)
 
+    if new_game.results
+        Main.statuses("#{player1.player_name} has won")
+        break
+    end
+
+    # Main.statuses("this is #{new_game.results}")
+
     # Player two
     position = Main.enter_position(player2.player_name)
-    puts new_game.input_position(position,player2.player_id)
+    new_game.input_position(position,player2.player_id)
 
+    if new_game.results
+        Main.display_board(new_game.my_board)
+        Main.statuses("#{player2.player_name} has won")
+        break
+    end
 
-    break if new_game.results !=0 || maximum_moves==1
+    break if  maximum_moves==1
     maximum_moves -=1
     
 end

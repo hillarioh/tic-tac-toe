@@ -14,29 +14,27 @@ class Board
             8=>"X",
             9=>"X",
         }
-        @results=0
+        @results=false
     end
 
     def input_position(value,player_id)
        if self.my_board[value] =="X"
         self.my_board[value]=player_id
+        @results = results_check(value,player_id)
        else
         return "position filled, choose another"
        end
 
     end
 
-
     def results_check(position,p_id)
 
-        # Vertical check
-         if position < 4
-        
+        vertical = vertical_check(position,p_id)
+        horiz = horizontal_check(position,p_id)
+        diag = diag_check(position,p_id)
 
-        # Horizontal check
-
-        #diagonal check
-        
+        return [vertical,horiz,diag].any?
+                
     end
 
     def vertical_check(position,p_id)
@@ -86,18 +84,19 @@ class Board
 
     def diag_check(position,p_id)
 
+        if position % 2 == 0
+            return false
+        end
+
         case position
         when 1,5,9
             my_array = [my_board[1],my_board[5],my_board[9]]
         when 3,5,7
-            my_array = [my_board[1],my_board[5],my_board[9]]
+            my_array = [my_board[3],my_board[5],my_board[7]]
         end
 
         return my_array.all?{|i| i==p_id}
 
     end
-
-
-
     
 end
