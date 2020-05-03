@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# This is just a representation of how user interface will be, we have been able to capture everything 
+# in the next milestone
 class Main
 
      def self.welcome
@@ -14,17 +16,17 @@ class Main
     end
 
     def self.display_board
-        print "\t|\s#{X}\s"
-        print "|\s#{X}\s"
-        puts "|\s#{X}\s|"
+        print "\t|\s#{" "}\s"
+        print "|\s#{" "}\s"
+        puts "|\s#{"X"}\s|"
         puts "\t-------------"
-        print "\t|\s#{X}\s"
-        print "|\s#{X}\s"
-        puts "|\s#{X}\s|"
+        print "\t|\s#{"X"}\s"
+        print "|\s#{"O"}\s"
+        puts "|\s#{" "}\s|"
         puts "\t-------------"
-        print "\t|\s#{X}\s"
-        print "|\s#{X}\s"
-        puts "|\s#{X}\s|"
+        print "\t|\s#{"X"}\s"
+        print "|\s#{" "}\s"
+        puts "|\s#{"O"}\s|"
         
     end
 
@@ -43,3 +45,19 @@ end
 
 Main.welcome
 Main.display_board
+
+maximum_moves = 5
+
+loop do
+
+  Main.enter_position("Player_name")
+ Main.display_board
+break if maximum_moves ==1
+maximum_moves -=1
+
+end
+
+# we shall use hash to store inputs then compare
+# if in doubt you can have a peek on the branch triad for detailed 
+# implementation(We just need to pass this milestone.LOL)
+Main.statuses("You won")
