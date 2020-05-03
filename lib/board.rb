@@ -33,6 +33,7 @@ class Board
         horiz = horizontal_check(position,p_id)
         diag = diag_check(position,p_id)
 
+        # check if any check for win is true
         return [vertical,horiz,diag].any?
                 
     end
