@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # This is just a representation of how user interface will be, we have been able to capture everything
 # in the next milestone. Please bear with us
+
 class Main
   def self.welcome
     puts 'Welcome to the game'
