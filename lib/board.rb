@@ -4,21 +4,21 @@ class Board
 
     def initialize()
         @my_board={
-            1=>"X",
-            2=>"X",
-            3=>"X",
-            4=>"X",
-            5=>"X",
-            6=>"X",
-            7=>"X",
-            8=>"X",
-            9=>"X",
+            1=>" ",
+            2=>" ",
+            3=>" ",
+            4=>" ",
+            5=>" ",
+            6=>" ",
+            7=>" ",
+            8=>" ",
+            9=>" ",
         }
         @results=false
     end
 
     def input_position(value,player_id)
-       if self.my_board[value] =="X"
+       if self.my_board[value] ==" "
         self.my_board[value]=player_id
         @results = results_check(value,player_id)
        else
