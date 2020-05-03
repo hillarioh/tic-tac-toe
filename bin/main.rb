@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+puts 'hello, '
 # This is just a representation of how user interface will be, we have been able to capture everything
 # in the next milestone. Please bear with us
 
