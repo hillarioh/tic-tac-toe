@@ -30,7 +30,7 @@ class Main
   end
 
   def self.enter_position(name)
-    puts "[#{name}]-Enter position (1-9 ):"
+    puts "[#{name}] - Enter position (1-9 ):"
     my_pos = gets.chomp
     my_pos.to_i
   end
