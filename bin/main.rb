@@ -5,7 +5,7 @@
 class Main
   def self.welcome
     puts 'Welcome to the game'
-    puts 'Press 1 to start'
+    puts 'Press 1 to  start'
     choice = gets.chomp
 
     if choice.to_i == 1
