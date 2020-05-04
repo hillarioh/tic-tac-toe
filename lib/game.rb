@@ -10,11 +10,11 @@ class Game
 end
 
 if Main.welcome == false
-    return Main.statuses("wrong value")
+    return Main.statuses("You did not press 1")
 end
 
-player1 = Player.new("James")
-player2 = Player.new("Peter")
+player1 = Player.new(Main.enter_name("Player 1"))
+player2 = Player.new(Main.enter_name("Player 2"))
 
 new_game = Board.new()
 
@@ -22,6 +22,11 @@ new_game = Board.new()
 maximum_moves = 5
 
 loop do
+
+    if maximum_moves == 5 
+        Main.statuses("Let the game begin")
+    end
+
     # displays current board state 
     Main.display_board(new_game.my_board)
 
@@ -49,11 +54,15 @@ loop do
         break
     end
 
+    if maximum_moves ==1
+        Main.statuses("The game is a draw")
+    end
+
     break if  maximum_moves==1
     maximum_moves -=1
     
 end
 
-# new_game.input_position(player1.getInput)
+
 
 

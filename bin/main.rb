@@ -2,13 +2,18 @@
 class Main
 
      def self.welcome
-        puts "Welcome to the game"
+        puts "Welcome to the tic-tac-toe game"
         puts "Press 1 to start"
         choice = gets.chomp
 
         if choice.to_i ==1
           return true
         else
+          puts "Incorrect value, Please Try again: "
+          sec_choice = gets.chomp
+          if sec_choice.to_i == 1
+            return true
+          end
           return false         
         end
     end
@@ -31,12 +36,39 @@ class Main
     def self.enter_position(name)
       puts "[#{name}]-Enter position (1-9 ):"
       my_pos = gets.chomp
-      return my_pos.to_i
+      my_pos = my_pos.to_i
+
+      # Check position inputed 
+     
+        if my_pos.to_i>0 && my_pos.to_i <=9
+            return my_pos.to_i
+        else
+          puts "inavalid input " 
+          enter_position(name)
+        end
+
+
     end
 
     def self.statuses(status)
-      puts status
+     
+      puts "\n#{status}\n"
     end
+
+    def self.enter_name(play)
+      puts "#{play} : Enter Name - "
+      name = gets.chomp
+      player = name.to_s
+      # removing whitespaces
+      player = player.gsub(/\s+/, "")
+
+      if player.length < 4
+        puts "Name should have at least four characters"
+        enter_name(play)
+      end
+      return player
+    end
+
 
   
 end

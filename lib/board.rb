@@ -18,11 +18,20 @@ class Board
     end
 
     def input_position(value,player_id)
+        # Checks if position is filled
        if self.my_board[value] ==" "
-        self.my_board[value]=player_id
+        # replace id with X and O
+        if player_id == 0
+            self.my_board[value]="X"
+        else
+            self.my_board[value]="O"
+        end
         @results = results_check(value,player_id)
        else
-        return "position filled, choose another"
+        Main.statuses("position filled, choose another")
+        new_val = Main.enter_position("Try again")
+        input_position(new_val,player_id)
+        
        end
 
     end
@@ -38,6 +47,7 @@ class Board
                 
     end
 
+    # Check for vertical win
     def vertical_check(position,p_id)
 
         my_array = []
@@ -61,6 +71,7 @@ class Board
 
     end
 
+     # Check for vertical win
     def horizontal_check(position,p_id)
 
         my_array = []
@@ -83,6 +94,7 @@ class Board
 
     end
 
+     # Check for diagonal win
     def diag_check(position,p_id)
 
         if position % 2 == 0
