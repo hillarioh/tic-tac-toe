@@ -6,6 +6,8 @@ class Game
 
     def initialize()
 
+new_game = Board.new
+
     end
 
 end
@@ -18,8 +20,6 @@ end
 
 player1 = Player.new(Main.enter_name("Player 1"))
 player2 = Player.new(Main.enter_name("Player 2"))
-
-new_game = Board.new
 
 
 # maximum number of moves a player can make
