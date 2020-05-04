@@ -15,6 +15,23 @@ class Main
     end
   end
 
+  # step2: User one and two will be requested to enter there names that will  be validated
+
+  def self.enter_name(play)
+      puts "#{play} : Enter Name - "
+      name = gets.chomp
+      player = name.to_s
+      # removing whitespaces
+      player = player.gsub(/\s+/, "")
+
+      if player.length < 4
+        puts "Name should have at least four characters"
+        enter_name(play)
+      end
+      return player
+    end
+
+    # step 3: Players will be shown board status every time they input a position
   def self.display_board
     print "\t|\s \s"
     print "|\s \s"
@@ -29,31 +46,100 @@ class Main
     puts "|\sO\s|"
   end
 
+  # step 4: Choosing position btn 1- 9 representing where the player will play
   def self.enter_position(name)
-    puts "[#{name}] - Enter position (1-9 ):"
-    my_pos = gets.chomp
-    my_pos.to_i
+      puts "[#{name}]-Enter position (1-9 ):"
+      my_pos = gets.chomp
+      my_pos = my_pos.to_i
+
+      # Check position inputed 
+     
+        if my_pos.to_i>0 && my_pos.to_i <=9
+            return my_pos.to_i
+        else
+          puts "inavalid input " 
+          enter_position(name)
+        end
+
+
+    end
+
+   def self.display_board
+    print "\t|\s \s"
+    print "|\s \s"
+    puts "|\sX\s|"
+    puts "\t-------------"
+    print "\t|\sX\s"
+    print "|\sO\s"
+    puts "|\s \s|"
+    puts "\t-------------"
+    print "\t|\sX\s"
+    print "|\s \s"
+    puts "|\sO\s|"
   end
 
   def self.statuses(status)
     puts status
   end
+
+
+
 end
 
+# step 1: User will press 1 to enter the game
 Main.welcome
 Main.display_board
 
+# Highest number of moves 
 maximum_moves = 5
 
+# This loop entails step 3 and 4 where after each input 
 loop do
-  Main.enter_position('Player_name')
+
+  # player one enters position where they can play
+  position = Main.enter_position('Player_name')
+
+  # The position is checked for everytime in the loop:-
+    #  - if it is empty
+    # - if it forms winning march
+  
+   # Then if no winning, it displays current board 
   Main.display_board
+
+  # player two 
+  position = Main.enter_position('Player_name')
+  # does checks then displays again if no win
+  # checks for true in results
+     if game.results #check if true which if true breaks the loop
+        Main.display_board(new_game.my_board)
+        Main.statuses("#{player1.player_name} has won")
+        break
+    end
+
+    # checks if all moves have been and with no win has occured thus results to a loss
+    if maximum_moves ==1
+        Main.statuses("The game is a draw")
+    end
+
+
+  Main.display_board
+
+  # checks for true in results
+    if new_game.results
+        Main.display_board(new_game.my_board)
+        Main.statuses("#{player2.player_name} has won")
+        break
+    end
+
+    # shows a draw
+    if maximum_moves ==1
+        Main.statuses("The game is a draw")
+    end
+
+# 
   break if maximum_moves == 1
 
   maximum_moves -= 1
 end
 
-# we shall use hash to store inputs then compare
-# if in doubt you can have a peek on the branch triad for detailed
-# implementation(We just need to pass this milestone.LOL)
-Main.statuses('You won')
+
