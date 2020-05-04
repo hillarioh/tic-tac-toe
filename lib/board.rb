@@ -2,6 +2,7 @@ class Board
 
     attr_reader :my_board, :results
 
+
     def initialize()
         @my_board={
             1=>" ",
@@ -14,24 +15,38 @@ class Board
             8=>" ",
             9=>" ",
         }
-        @results=false
+        @results=  results_check(value,player_id)
     end
 
     def input_position(value,player_id)
         # Checks if position is filled
-       if self.my_board[value] ==" "
-        # replace id with X and O
-        if player_id == 0
+       if player_id == 0
             self.my_board[value]="X"
+            @results = results_check(value,"X")
         else
             self.my_board[value]="O"
+            @results = results_check(value,"O")
         end
-        @results = results_check(value,player_id)
+
+def input_position(value,player_id)
+        # Checks if position is filled
+       if self.my_board[value] ==" "
+        # replaces id with X and O
+        if player_id == 0
+            self.my_board[value]="X"
+            @results = results_check(value,"X")
+        else
+            self.my_board[value]="O"
+            @results = results_check(value,"O")
+        end
+
        else
         Main.statuses("position filled, choose another")
         new_val = Main.enter_position("Try again")
         input_position(new_val,player_id)
-        
+       end
+    end
+
        end
 
     end
@@ -44,14 +59,14 @@ class Board
 
         # check if any check for win is true
         return [vertical,horiz,diag].any?
-                
+
     end
 
     # Check for vertical win
     def vertical_check(position,p_id)
 
         my_array = []
-       
+
         case position
         when 1..3
             my_array <<  my_board[position]
@@ -111,5 +126,4 @@ class Board
         return my_array.all?{|i| i==p_id}
 
     end
-    
-end
+

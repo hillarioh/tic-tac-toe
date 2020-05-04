@@ -5,29 +5,33 @@ require_relative 'board.rb'
 class Game
 
     def initialize()
+
     end
-     
+
 end
 
 if Main.welcome == false
     return Main.statuses("You did not press 1")
 end
 
+
+
 player1 = Player.new(Main.enter_name("Player 1"))
 player2 = Player.new(Main.enter_name("Player 2"))
 
-new_game = Board.new()
+new_game = Board.new
+
 
 # maximum number of moves a player can make
 maximum_moves = 5
 
 loop do
 
-    if maximum_moves == 5 
+    if maximum_moves == 5
         Main.statuses("Let the game begin")
     end
 
-    # displays current board state 
+    # displays current board state
     Main.display_board(new_game.my_board)
 
     # Player One
@@ -60,7 +64,7 @@ loop do
 
     break if  maximum_moves==1
     maximum_moves -=1
-    
+
 end
 
 
