@@ -2,12 +2,7 @@ require_relative '../bin/main.rb'
 require_relative 'player.rb'
 require_relative 'board.rb'
 
-class Game
-
-    def initialize()
-
-
-end
+class Game;end
 
 if Main.welcome == false
     return Main.statuses("You did not press 1")

@@ -4,7 +4,7 @@ In this project, we build a Tic Tac Toe game. The main goal is to put into pract
 
 ## Screenshot
 
-![screenshot](./screenshot.png)
+![game](./game.png)
 
 ## Built With
 
