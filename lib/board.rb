@@ -15,19 +15,10 @@ class Board
             8=>" ",
             9=>" ",
         }
-        @results=  results_check(value,player_id)
+        @results=  false
     end
 
-    def input_position(value,player_id)
-        # Checks if position is filled
-       if player_id == 0
-            self.my_board[value]="X"
-            @results = results_check(value,"X")
-        else
-            self.my_board[value]="O"
-            @results = results_check(value,"O")
-        end
-
+   
 def input_position(value,player_id)
         # Checks if position is filled
        if self.my_board[value] ==" "
@@ -47,10 +38,7 @@ def input_position(value,player_id)
        end
     end
 
-       end
-
-    end
-
+    
     def results_check(position,p_id)
 
         vertical = vertical_check(position,p_id)
@@ -126,4 +114,5 @@ def input_position(value,player_id)
         return my_array.all?{|i| i==p_id}
 
     end
+end
 
