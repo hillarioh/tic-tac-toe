@@ -33,8 +33,14 @@ class Main
         
     end
 
-    def self.enter_position(name)
-      puts "[#{name}]-Enter position (1-9 ):"
+    def self.enter_position(name,id)
+       if id ==0
+        id = "X"
+      else
+        id="O"
+      end
+      puts "[#{name}-(#{id})]-Enter position (1-9 ):"  
+     
       my_pos = gets.chomp
       my_pos = my_pos.to_i
 
