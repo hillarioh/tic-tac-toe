@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+<<<<<<< HEAD
 # This is just a representation of how user interface will be, we have been able to capture everything
 # in the next milestone. Please bear with us
 
@@ -117,3 +118,6 @@ loop do
 
   maximum_moves -= 1
 end
+=======
+puts 'Hello world!!!'
+>>>>>>> 80106dd840f7b05f8b090ce56a125d919f1f0489
