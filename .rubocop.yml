@@ -15,13 +15,14 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ['describe']
+  ExcludedMethods: ["describe"]
   Max: 30
-
 
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ClassVars:
   Enabled: false
 Style/EachForSimpleLoop:
   Enabled: false
