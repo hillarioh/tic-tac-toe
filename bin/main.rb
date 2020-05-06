@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# I am using windows
 require_relative '../lib/game.rb'
 class Main
   def self.welcome
