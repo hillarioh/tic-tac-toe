@@ -5,6 +5,7 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
+    - 'bin/main.rb'
 
   DisplayCopNames: true
 
