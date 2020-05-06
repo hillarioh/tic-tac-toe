@@ -11,7 +11,7 @@ class Main
     choice = gets.chomp
 
     if choice.to_i == 1
-      puts "Players enter your names: "
+      puts 'Players enter your names: '
       true
     else
       puts 'Incorrect value, Please Try again: '
