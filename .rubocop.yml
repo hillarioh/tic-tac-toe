@@ -6,6 +6,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - 'bin/main.rb'
+    - '.git/**/*'
 
   DisplayCopNames: true
 
