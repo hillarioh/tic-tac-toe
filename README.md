@@ -14,10 +14,10 @@ In this project, we build a Tic Tac Toe game. The main goal is to put into pract
 
 You may use the following steps to get a local copy:
 
-Clone project to your local machine
-cd to the project directory
-Open project in IDE/Text Editor
-Type ruby main.rb through the terminal to run the code or use the debug button in your text editor.
+1. Clone project to your local machine
+2. cd to the project directory
+3. Open project in IDE/Text Editor
+4. Type ruby main.rb through the terminal to run the code or use the debug button in your text editor.
 
 ## 🤝 Contributing
 
