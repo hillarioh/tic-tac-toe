@@ -50,7 +50,6 @@ class Main
   end
 
   def self.statuses(status)
-<<<<<<< HEAD
     puts "\n#{status}\n"
   end
 
@@ -68,59 +67,3 @@ class Main
     player
   end
 end
-=======
-    puts status
-  end
-end
-
-# step 1: User will press 1 to enter the game
-Main.welcome
-Main.display_board
-
-# Highest number of moves
-maximum_moves = 5
-
-# This loop entails step 3 and 4 where after each input
-loop do
-  # player one enters position where they can play
-  position = Main.enter_position('Player_name')
-  puts position
-  # function to check position
-  # The position is checked for everytime in the loop:-
-  #  - if it is empty
-  # - if it forms winning march
-
-  # Then if no winning, it displays current board
-  Main.display_board
-
-  # player two
-  position = Main.enter_position('Player_name')
-  puts position
-  # does checks then displays again if no win
-  # checks for true in results
-  if game.results # check if true which if true breaks the loop
-    Main.display_board(new_game.my_board)
-    Main.statuses("#{player1.player_name} has won")
-    break
-  end
-
-  # checks if all moves have been and with no win has occured thus results to a loss
-  Main.statuses('The game is a draw') if maximum_moves == 1
-
-  Main.display_board
-
-  # checks for true in results
-  if new_game.results
-    Main.display_board(new_game.my_board)
-    Main.statuses("#{player2.player_name} has won")
-    break
-  end
-
-  # shows a draw
-  Main.statuses('The game is a draw') if maximum_moves == 1
-
-  break if maximum_moves == 1
-
-  maximum_moves -= 1
-end
->>>>>>> development
