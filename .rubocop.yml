@@ -1,12 +1,8 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Exclude:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
-    - "bin/main.rb"
-    - ".git/**/*"
 
   DisplayCopNames: true
 
