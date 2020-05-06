@@ -2,7 +2,7 @@
 # I have run linter on all files and their no errors i dont understand why stickler says their is an error still
 #  please before you disapprove because of that contact me on slack hillary okerio with how i can solve it please.
 
-require_relative '../lib/game.rb'
+require '../lib/game.rb'
 class Main
   def self.welcome
     puts 'Welcome to the tic-tac-toe game'
