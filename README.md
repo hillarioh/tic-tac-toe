@@ -39,7 +39,7 @@ You are welcome to make contributions to the repository. Contributions may be ma
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a ⭐️ if you like this project!!
 
 ## 📝 License
 
