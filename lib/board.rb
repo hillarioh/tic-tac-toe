@@ -1,3 +1,4 @@
+
 class Board
   attr_reader :my_board, :results
 
@@ -20,7 +21,7 @@ class Board
     # Checks if position is filled
     if my_board[value] == ' '
       # replaces id with X and O
-      if player_id.zero?
+      if player_id==1
         my_board[value] = 'X'
         @results = results_check(value, 'X')
       else
@@ -29,8 +30,8 @@ class Board
       end
 
     else
-      Main.statuses('position filled, choose another')
-      new_val = Main.enter_position('Try again')
+      statuses('position filled, choose another')
+      new_val = enter_position('Try again',player_id)
       input_position(new_val, player_id)
     end
   end
@@ -98,13 +99,16 @@ class Board
       left_dig = [my_board[1], my_board[5], my_board[9]]
       ryt_dig = [my_board[3], my_board[5], my_board[7]]
 
-      my_array = left_dig if left_dig.all? { |i| i == p_id }
+      if  (left_dig.all? { |i| i == p_id })  || (ryt_dig.all? { |i| i == p_id })
+        return true
+      else
+        return false
+      end
 
-      my_array = ryt_dig if ryt_dig.all? { |i| i == p_id }
     else
       return false
     end
 
-    my_array.all? { |i| i == p_id }
+     my_array.all? { |i| i == p_id }
   end
 end

@@ -1,28 +1,56 @@
 #!/usr/bin/env ruby
 # I have run linter on all files and their no errors i dont understand why stickler says their is an error still
-#  please before you disapprove because of that contact me on slack hillary okerio with how i can solve it please.
+require_relative '../lib/game'
+# All methods are laid out here as advised by TSE
+# Method to start the game
+def start_game
 
-require_relative '../lib/game.rb'
-class Main
-  def self.welcome
-    puts 'Welcome to the tic-tac-toe game'
+  new_game = Game.new
 
-    puts 'To start the game Press 1 to start'
-    choice = gets.chomp
+  return statuses('You did not press 1')  if welcome == false
 
-    if choice.to_i == 1
-      puts 'Players enter your names: '
-      true
+  new_game.set_players
+
+  # maximum number of moves a player can make
+  maximum_moves = 9
+
+  loop do
+    statuses('Let the game begin') if maximum_moves == 9
+
+    current_player = ""
+
+    # displays current board state
+    display_board(new_game.new_board.my_board)
+    
+    if maximum_moves % 2 == 0
+      # signifies first players turn  to play in loop thus ensuring each loops per player
+      current_player_id = new_game.player1.player_id
+      current_player = new_game.player1.player_name
     else
-      puts 'Incorrect value, Please Try again: '
-      sec_choice = gets.chomp
-      return true if sec_choice.to_i == 1
-
-      false
+      current_player_id = new_game.player2.player_id
+      current_player = new_game.player2.player_name
     end
-  end
 
-  def self.display_board(stuff)
+    position = enter_position(current_player, current_player_id)
+    new_game.new_board.input_position(position, current_player_id)
+    
+    # checks for true in results
+    if new_game.new_board.results
+      display_board(new_game.new_board.my_board)
+      statuses("#{current_player} has won")
+      break
+    end
+
+    statuses('The game is a draw') if maximum_moves == 1
+
+    break if maximum_moves == 1
+
+    maximum_moves -= 1
+  end
+end
+
+# method for displaying board
+def display_board(stuff)
     print "\t|\s#{stuff[1]}\s"
     print "|\s#{stuff[2]}\s"
     puts "|\s#{stuff[3]}\s|"
@@ -36,10 +64,15 @@ class Main
     puts "|\s#{stuff[9]}\s|"
   end
 
-  def self.enter_position(name, id)
-    id.zero? ? 'X' : 'O'
 
-    puts "[#{name}-(#{id})]-Enter position (1-9 ):"
+  def enter_position(name, id)
+  if id==1
+    id2='X'
+  else
+    id2='O'
+  end
+
+    puts "[#{name}-(#{id2})]-Enter position (1-9 ):"
 
     my_pos = gets.chomp
     my_pos = my_pos.to_i
@@ -50,15 +83,16 @@ class Main
       my_pos.to_i
     else
       puts 'inavalid input '
-      enter_position(name)
+      enter_position(name,id)
     end
-  end
+end
 
-  def self.statuses(status)
+# method used to display when used in other classes
+def statuses(status)
     puts "\n#{status}\n"
-  end
+end
 
-  def self.enter_name(play)
+def enter_name(play)
     puts "#{play} : Enter Name - "
     name = gets.chomp
     player = name.to_s
@@ -70,5 +104,27 @@ class Main
       enter_name(play)
     end
     player
-  end
 end
+
+def welcome
+  puts 'Welcome to the tic-tac-toe game'
+  puts 'To start the game Press 1 '
+  
+  choice = gets.chomp
+
+  if choice.to_i == 1
+      puts 'Players enter your names: '
+      true
+    else
+      puts 'Incorrect value, Please Try again: '
+      sec_choice = gets.chomp
+      return true if sec_choice.to_i == 1
+
+      false
+    end
+end
+
+# Execution starts here
+start_game
+
+
