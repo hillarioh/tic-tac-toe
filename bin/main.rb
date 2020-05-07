@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 # I have run linter on all files and their no errors i dont understand why stickler says their is an error still
+
 require_relative '../lib/game'
 # All methods are laid out here as advised by TSE
 # Method to start the game
 def start_game
-
   new_game = Game.new
 
-  return statuses('You did not press 1')  if welcome == false
+  return statuses('You did not press 1') if welcome == false
 
   new_game.set_players
 
@@ -17,12 +17,12 @@ def start_game
   loop do
     statuses('Let the game begin') if maximum_moves == 9
 
-    current_player = ""
+    current_player = ''
 
     # displays current board state
     display_board(new_game.new_board.my_board)
-    
-    if maximum_moves % 2 == 0
+
+    if maximum_moves.even?
       # signifies first players turn  to play in loop thus ensuring each loops per player
       current_player_id = new_game.player1.player_id
       current_player = new_game.player1.player_name
@@ -33,7 +33,7 @@ def start_game
 
     position = enter_position(current_player, current_player_id)
     new_game.new_board.input_position(position, current_player_id)
-    
+
     # checks for true in results
     if new_game.new_board.results
       display_board(new_game.new_board.my_board)
@@ -51,80 +51,77 @@ end
 
 # method for displaying board
 def display_board(stuff)
-    print "\t|\s#{stuff[1]}\s"
-    print "|\s#{stuff[2]}\s"
-    puts "|\s#{stuff[3]}\s|"
-    puts "\t-------------"
-    print "\t|\s#{stuff[4]}\s"
-    print "|\s#{stuff[5]}\s"
-    puts "|\s#{stuff[6]}\s|"
-    puts "\t-------------"
-    print "\t|\s#{stuff[7]}\s"
-    print "|\s#{stuff[8]}\s"
-    puts "|\s#{stuff[9]}\s|"
-  end
+  print "\t|\s#{stuff[1]}\s"
+  print "|\s#{stuff[2]}\s"
+  puts "|\s#{stuff[3]}\s|"
+  puts "\t-------------"
+  print "\t|\s#{stuff[4]}\s"
+  print "|\s#{stuff[5]}\s"
+  puts "|\s#{stuff[6]}\s|"
+  puts "\t-------------"
+  print "\t|\s#{stuff[7]}\s"
+  print "|\s#{stuff[8]}\s"
+  puts "|\s#{stuff[9]}\s|"
+end
 
+def enter_position(name, id)
+  id2 = if id == 1
+          'X'
+        else
+          'O'
+        end
 
-  def enter_position(name, id)
-  if id==1
-    id2='X'
+  puts "[#{name}-(#{id2})]-Enter position (1-9 ):"
+
+  my_pos = gets.chomp
+  my_pos = my_pos.to_i
+
+  # Check position inputed
+
+  if my_pos.to_i.positive? && my_pos.to_i <= 9
+    my_pos.to_i
   else
-    id2='O'
+    puts 'inavalid input '
+    enter_position(name, id)
   end
-
-    puts "[#{name}-(#{id2})]-Enter position (1-9 ):"
-
-    my_pos = gets.chomp
-    my_pos = my_pos.to_i
-
-    # Check position inputed
-
-    if my_pos.to_i.positive? && my_pos.to_i <= 9
-      my_pos.to_i
-    else
-      puts 'inavalid input '
-      enter_position(name,id)
-    end
 end
 
 # method used to display when used in other classes
 def statuses(status)
-    puts "\n#{status}\n"
+  puts "\n#{status}\n"
 end
 
 def enter_name(play)
-    puts "#{play} : Enter Name - "
-    name = gets.chomp
-    player = name.to_s
-    # removing whitespaces
-    player = player.gsub(/\s+/, '')
+  puts "#{play} : Enter Name - "
+  name = gets.chomp
+  player = name.to_s
+  # removing whitespaces
+  player = player.gsub(/\s+/, '')
 
-    if player.length < 4
-      puts 'Name should have at least four characters'
-      enter_name(play)
-    end
-    player
+  if player.length < 4
+    puts 'Name should have at least four characters'
+    enter_name(play)
+  end
+  player
 end
 
 def welcome
   puts 'Welcome to the tic-tac-toe game'
   puts 'To start the game Press 1 '
-  
+
   choice = gets.chomp
 
   if choice.to_i == 1
-      puts 'Players enter your names: '
-      true
-    else
-      puts 'Incorrect value, Please Try again: '
-      sec_choice = gets.chomp
-      return true if sec_choice.to_i == 1
+    puts 'Players enter your names: '
+    true
+  else
+    puts 'Incorrect value, Please Try again: '
+    sec_choice = gets.chomp
+    return true if sec_choice.to_i == 1
 
-      false
-    end
+    false
+  end
 end
 
 # Execution starts here
 start_game
-
-

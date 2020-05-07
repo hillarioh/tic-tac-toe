@@ -14,6 +14,7 @@ Layout/LineLength:
 Lint/ScriptPermission:
   Enabled: false
 Metrics/MethodLength:
+  ExcludedMethods: start_game
   Max: 20
 Metrics/AbcSize:
   Max: 50
@@ -22,6 +23,10 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
   Max: 30
+Metrics/CyclomaticComplexity:
+  IgnoredMethods: start_game
+Metrics/PerceivedComplexity:
+ IgnoredMethods: start_game
 
 Style/Documentation:
   Enabled: false

@@ -1,4 +1,3 @@
-
 class Board
   attr_reader :my_board, :results
 
@@ -21,7 +20,7 @@ class Board
     # Checks if position is filled
     if my_board[value] == ' '
       # replaces id with X and O
-      if player_id==1
+      if player_id == 1
         my_board[value] = 'X'
         @results = results_check(value, 'X')
       else
@@ -31,7 +30,7 @@ class Board
 
     else
       statuses('position filled, choose another')
-      new_val = enter_position('Try again',player_id)
+      new_val = enter_position('Try again', player_id)
       input_position(new_val, player_id)
     end
   end
@@ -93,22 +92,20 @@ class Board
     case position
     when 1, 9
       my_array = [my_board[1], my_board[5], my_board[9]]
+      return my_array.all? { |i| i == p_id }
     when 3, 7
       my_array = [my_board[3], my_board[5], my_board[7]]
+      return my_array.all? { |i| i == p_id }
     when 5
       left_dig = [my_board[1], my_board[5], my_board[9]]
       ryt_dig = [my_board[3], my_board[5], my_board[7]]
 
-      if  (left_dig.all? { |i| i == p_id })  || (ryt_dig.all? { |i| i == p_id })
-        return true
-      else
-        return false
-      end
+      return true if (left_dig.all? { |i| i == p_id }) || (ryt_dig.all? { |i| i == p_id })
 
     else
       return false
     end
 
-     my_array.all? { |i| i == p_id }
+    false
   end
 end
