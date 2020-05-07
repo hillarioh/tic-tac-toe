@@ -101,8 +101,9 @@ def enter_name(play)
   if player.length < 4
     puts 'Name should have at least four characters'
     enter_name(play)
+  else
+    player
   end
-  player
 end
 
 def welcome
