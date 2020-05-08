@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-# I have run linter on all files and their no errors i dont understand why stickler says their is an error still
 
 require_relative '../lib/game'
 # All methods are laid out here as advised by TSE
