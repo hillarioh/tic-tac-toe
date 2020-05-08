@@ -1,5 +1,6 @@
 class Board
   attr_reader :my_board, :results
+  attr_accessor :my_board
 
   def initialize()
     @my_board = {
