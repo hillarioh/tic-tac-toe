@@ -64,6 +64,8 @@ def display_board(stuff)
   print "\t|\s#{stuff[7]}\s"
   print "|\s#{stuff[8]}\s"
   puts "|\s#{stuff[9]}\s|"
+
+  return stuff
 end
 
 def enter_position(name, id)
