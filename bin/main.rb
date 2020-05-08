@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 # I have run linter on all files and their no errors i dont understand why stickler says their is an error still
-
-
 require_relative '../lib/game'
 # All methods are laid out here as advised by TSE
 # Method to start the game
@@ -63,7 +61,6 @@ def display_board(stuff)
   print "\t|\s#{stuff[7]}\s"
   print "|\s#{stuff[8]}\s"
   puts "|\s#{stuff[9]}\s|"
-
 end
 
 def enter_position(name, id)
