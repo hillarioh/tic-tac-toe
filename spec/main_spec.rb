@@ -1,17 +1,22 @@
 require_relative '../lib/board'
-# require '../lib/game'
 
 RSpec.describe Board  do
 
     describe "#input_position" do
-        it "returns win state input for player 1" do
-            board = Board.new
-            expect(board.input_position(1,0)).to eql(board.results) 
+        let(:board){Board.new}    
+        context "when position is not filled" do
+            it "returns true" do
+                expect(board.input_position(1,0)).to eql(true) 
+            end
         end
-        it "returns win state input for player 2" do
-            board = Board.new
-            expect(board.input_position(5,1)).to eql(board.results) 
+
+        context "when position is filled" do
+            it "returns false" do
+                expect(board.input_position(2,1)).to eql(true) 
+            end
         end
+        
+        
     end
 
     describe "#results_check" do

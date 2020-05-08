@@ -1,3 +1,4 @@
+
 class Board
   attr_reader :results
   attr_accessor :my_board
@@ -19,6 +20,7 @@ class Board
 
   def input_position(value, player_id)
     # Checks if position is filled
+    som = true
     if my_board[value] == ' '
       # replaces id with X and O
       if player_id == 1
@@ -28,12 +30,14 @@ class Board
         my_board[value] = 'O'
         @results = results_check(value, 'O')
       end
-
     else
       statuses('position filled, choose another')
       new_val = enter_position('Try again', player_id)
+      som = false
       input_position(new_val, player_id)
+     
     end
+    som
   end
 
   def results_check(position, p_id)
