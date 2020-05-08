@@ -1,4 +1,3 @@
-
 class Board
   attr_reader :results
   attr_accessor :my_board
@@ -35,7 +34,7 @@ class Board
       new_val = enter_position('Try again', player_id)
       som = false
       input_position(new_val, player_id)
-     
+
     end
     som
   end
