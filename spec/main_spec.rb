@@ -1,7 +1,7 @@
 require_relative '../lib/board'
 # require '../lib/game'
 
-describe Board  do
+RSpec.describe Board  do
 
     describe "#input_position" do
         it "returns win state input for player 1" do
@@ -15,49 +15,82 @@ describe Board  do
     end
 
     describe "#results_check" do
-        it "return false if no winning combination" do
-            board = Board.new
-            expect(board.results_check(5,"X")).to eql(false)        
+         let(:board){Board.new}    
+        context "when either (vertical,diagonal,horizontal) has winning combination" do
+             it "return true" do
+                 board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => 'X',5 => ' ',6 => ' ',7 => 'X',
+                    8 => ' ',9 => 'X'}
+                expect(board.results_check(4,"X")).to eql(true)        
+            end
         end
+        context "when none (vertical,diagonal,horizontal) has winning combination" do
+             it "return false" do
+                 board.my_board = { 1 => ' ', 2 => ' ',3 => ' ',4 => ' ',5 => 'X',6 => ' ',7 => 'X',
+                    8 => ' ',9 => 'X'}
+                expect(board.results_check(5,"X")).to eql(false)        
+            end
+        end
+       
     end
 
     describe "#vertical_check" do
-        it "return false unless it is part of vertical winning combination" do 
-            board = Board.new
-            board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => 'X',5 => ' ',6 => ' ',7 => 'X',
-                8 => ' ',9 => 'X'}
-            expect(board.vertical_check(4,"X")).to eql(true)
+        let(:board){Board.new}      
+        context 'when it is part of vertical winning combination' do
+            it "return true " do 
+                board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => 'X',5 => ' ',6 => ' ',7 => 'X',
+                    8 => ' ',9 => 'X'}
+                expect(board.vertical_check(4,"X")).to eql(true)
+            end
+        end
+        context 'when it is not part of vertical winning combination' do
+            it "return false " do 
+                board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => 'X',5 => ' ',6 => ' ',7 => 'X',
+                    8 => ' ',9 => 'X'}
+                expect(board.vertical_check(5,"X")).to eql(false)
+            end          
         end
     end
 
     describe "#horizontal_check" do
-        it "return false unless it is part of vertical winning combination" do 
-            board = Board.new
-            board.my_board = { 1 => 'X', 2 => 'X',3 => 'X',4 => ' ',5 => ' ',6 => ' ',7 => ' ',
+         let(:board){Board.new}   
+        context "when it is part of horizontal winning combination" do
+            it "return true " do 
+                board.my_board = { 1 => 'X', 2 => 'X',3 => 'X',4 => ' ',5 => ' ',6 => ' ',7 => ' ',
                 8 => ' ',9 => ''}
-            expect(board.horizontal_check(1,"X")).to eql(true)
+                expect(board.horizontal_check(1,"X")).to eql(true)
+            end
         end
-        it "return false as player has no O horizontal combinations" do 
-            board = Board.new
-            board.my_board = { 1 => 'X', 2 => 'X',3 => 'X',4 => ' ',5 => ' ',6 => ' ',7 => ' ',
+        context "when a player is not part horizontal combinations" do
+            it "return false " do 
+                board.my_board = { 1 => 'X', 2 => 'X',3 => 'X',4 => ' ',5 => ' ',6 => ' ',7 => ' ',
                 8 => ' ',9 => ''}
-            expect(board.horizontal_check(4,"O")).to eql(false)
+                expect(board.horizontal_check(4,"X")).to eql(false)
+            end
         end
+        
     end
 
     describe "#diagonal_check" do
-        it "return false unless it is part of left diag winning combination" do 
-            board = Board.new
-            board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => ' ',5 => 'X',6 => ' ',7 => ' ',
+        let(:board){Board.new}  
+        context "when it is part of  diag winning combination(left diag)" do
+             it "return true " do 
+                board.my_board = { 1 => 'X', 2 => ' ',3 => ' ',4 => ' ',5 => 'X',6 => ' ',7 => ' ',
                 8 => ' ',9 => 'X'}
-            expect(board.diag_check(5,"X")).to eql(true)
+                expect(board.diag_check(5,"X")).to eql(true)
+                expect(board.diag_check(3,"X")).to eql(false)
+            end            
         end
-        it "return false unless it is part of  right diag winning combination" do 
-            board = Board.new
-            board.my_board = { 1 => ' ', 2 => ' ',3 => 'X',4 => ' ',5 => 'X',6 => ' ',7 => 'X',
+
+        context "when it is not part of  diag winning combination(right diag)" do
+            it "return false" do 
+                board.my_board = { 1 => ' ', 2 => ' ',3 => 'X',4 => ' ',5 => 'X',6 => ' ',7 => 'X',
                 8 => ' ',9 => ' '}
-            expect(board.diag_check(5,"X")).to eql(true)
+                expect(board.diag_check(5,"X")).to eql(true)
+                expect(board.diag_check(1,"X")).to eql(false)
+            end
         end
+       
+        
     end
     
 end
