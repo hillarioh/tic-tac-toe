@@ -1,4 +1,3 @@
-
 require_relative '../lib/game'
 # All methods are laid out here as advised by TSE
 # Method to start the game
