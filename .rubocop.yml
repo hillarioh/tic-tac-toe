@@ -11,7 +11,7 @@ Layout/LineLength:
 Lint/ScriptPermission:
   Enabled: false
 Metrics/MethodLength:
-  Max: 20
+  Max: 30
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -19,10 +19,16 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
   Max: 30
+Metrics/PerceivedComplexity:
+  Max: 10
+Metrics/CyclomaticComplexity:
+  Max: 10
 
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ClassVars:
   Enabled: false
 Style/EachForSimpleLoop:
   Enabled: false
