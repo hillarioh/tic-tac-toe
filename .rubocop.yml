@@ -1,4 +1,3 @@
-
 AllCops:
   Exclude:
     - "README.md"
@@ -14,7 +13,6 @@ Layout/LineLength:
 Lint/ScriptPermission:
   Enabled: false
 Metrics/MethodLength:
-  ExcludedMethods: start_game
   Max: 20
 Metrics/AbcSize:
   Max: 50
@@ -23,10 +21,6 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
   Max: 30
-Metrics/CyclomaticComplexity:
-  IgnoredMethods: start_game
-Metrics/PerceivedComplexity:
- IgnoredMethods: start_game
 
 Style/Documentation:
   Enabled: false
@@ -52,8 +46,7 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Lint/RaiseException:
   Enabled: false
-Lint/ScriptPermission:
-  Enabled: false
+
 Lint/StructNewOverride:
   Enabled: false
 Style/HashEachMethods:
