@@ -2,9 +2,17 @@
 
 In this project, we build a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object Oriented Programming. Particularly, classes and access to their attributes.
 
-## Built With
+## Built With Ruby
 
-- Ruby
+## Game Rules
+
+- It is a two player game
+- One player uses X and the other player uses O to mark their positions on the board
+- Positions can be marked vertically, diagonally, and horizontally.
+- The player that places three of their marks in a row is the winner
+- If none of the players are able to get 3 marks in a row and all the moves on the 3 by 3 board are used, the game is a draw.
+
+
 
 ## Game Instructioons
 
