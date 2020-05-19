@@ -13,11 +13,12 @@ def start_game
   new_game.set_players
 
   # maximum number of moves a player can make
-  maximum_moves = 9
-  gameon=true
+
+  gameon = true
 
   while gameon
-    new_game.new_board.clear_board;
+    new_game.new_board.clear_board
+    maximum_moves = 9
     loop do
       statuses('Let the game begin') if maximum_moves == 9
 
@@ -51,9 +52,9 @@ def start_game
 
       maximum_moves -= 1
     end
-    statuses("Press N to start a new game or  any key to quit ")
-    choice = gets.chomp.downcase;
-    gameon = choice == 'n' ? true : false
+    statuses('Press N to start a new game or  any key to quit ')
+    choice = gets.chomp.downcase
+    gameon = choice == 'n'
   end
 end
 
