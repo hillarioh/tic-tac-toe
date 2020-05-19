@@ -16,6 +16,20 @@ class Board
     @results = false
   end
 
+  def clear_board
+    @my_board = {
+      1 => ' ',
+      2 => ' ',
+      3 => ' ',
+      4 => ' ',
+      5 => ' ',
+      6 => ' ',
+      7 => ' ',
+      8 => ' ',
+      9 => ' '
+    }
+  end
+
   def input_position(value, player_id)
     # Checks if position is filled
     if my_board[value] == ' '
