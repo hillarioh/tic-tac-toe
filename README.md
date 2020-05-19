@@ -4,10 +4,6 @@ In this project, we build a Tic Tac Toe game. The main goal is to put into pract
 
 ## Setup Installation
 
-                                            gem install nokogiri
-
-nokogiri is a Rubygem providing HTML, XML, SAX, and Reader parsers with XPath and CSS selector support.
-
                                             gem install rspec
 
 This will be for testing
